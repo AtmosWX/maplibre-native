@@ -64,7 +64,7 @@ public:
 
     Layer* addLayer(std::unique_ptr<Layer>, const std::optional<std::string>& beforeLayerID = std::nullopt);
     std::unique_ptr<Layer> removeLayer(const std::string& layerID);
-    void removeLayer(const std::string& layerID, const std::string& beforeLayerID);
+    void moveLayer(const std::string& layerID, const std::string& beforeLayerID);
 
     std::string getName() const;
     CameraOptions getDefaultCamera() const;
