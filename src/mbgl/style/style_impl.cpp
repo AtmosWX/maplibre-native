@@ -235,6 +235,15 @@ std::unique_ptr<Layer> Style::Impl::removeLayer(const std::string& id) {
     return layer;
 }
 
+void Style::Impl::moveLayer(const std::string& id, const std::string& before) {
+    std::unique_ptr<Layer> layer = layers.remove(id);
+
+    if (layer) {
+        layer->add(std::move(layer), before);
+        observer->onUpdate();
+    }
+}
+
 void Style::Impl::setLight(std::unique_ptr<Light> light_) {
     light = std::move(light_);
     light->setObserver(this);

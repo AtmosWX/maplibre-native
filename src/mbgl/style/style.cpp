@@ -132,5 +132,10 @@ std::unique_ptr<Layer> Style::removeLayer(const std::string& id) {
     return impl->removeLayer(id);
 }
 
+void Style::moveLayer(const std::string& id, const std::string& before) {
+    impl->mutated = true;
+    return impl->moveLayer(id, before);
+}
+
 } // namespace style
 } // namespace mbgl
