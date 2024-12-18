@@ -239,7 +239,7 @@ void Style::Impl::moveLayer(const std::string& id, const std::string& before) {
     std::unique_ptr<Layer> layer = layers.remove(id);
 
     if (layer) {
-        layer->add(std::move(layer), before);
+        layers.add(std::move(layer), before);
         observer->onUpdate();
     }
 }
